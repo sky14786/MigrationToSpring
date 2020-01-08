@@ -1,13 +1,15 @@
 package com.themembers.member;
 
+import java.util.HashMap;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.themembers.common.jwt.TokenManager;
 
 @RestController
 @RequestMapping("/api")
@@ -20,22 +22,15 @@ public class MemberController {
 
 	@GetMapping(value = "/member")
 	public Object findAll() {
+		log.info(memberService.findAll());
 		return memberService.findAll();
 	}
 
-	@GetMapping(value = "/test")
-	public String test() {
-		String token = TokenManager.createToken();
-		log.info(token);
-		try {
-			TokenManager.getTokenFromJwtString(token);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return "test";
+	@PostMapping(value = "/member")
+	public int create(@RequestBody HashMap map) {
+		log.info("|INPUT|"+map);
+		memberService.create(map);
+		return 1;
 	}
-	
-	
-	
-	
+
 }

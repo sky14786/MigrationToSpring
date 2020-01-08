@@ -1,5 +1,6 @@
 package com.themembers.common.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,5 +10,6 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface MemberMapper {
-	List<Map<String,Object>> findAll();
+	List<HashMap<String,Object>> findAll();
+	int create(HashMap map);
 }

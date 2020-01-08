@@ -4,4 +4,8 @@
 	<select id="findAll" resultType="java.util.HashMap">
 		SELECT * FROM MEMBER;
 	</select>
+	
+	<insert id="create" parameterType="map">
+		INSERT INTO MEMBER VALUES(DEFAULT,#{NAME},#{ID},#{PWD},#{PHONE},#{GENDER},#{BIRTH},DEFAULT,DEFAULT,"Y",DEFAULT,#{UPD_USER},#{MAIL_YN},#{SNS_YN},#{NICKNAME})
+	</insert>
 </mapper>
