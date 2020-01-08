@@ -1,10 +1,10 @@
-package com.thecenter.pilatest;
+package com.themembers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PilatestpitApplicationTests {
+class TheMembersApplicationTests {
 
 	@Test
 	void contextLoads() {

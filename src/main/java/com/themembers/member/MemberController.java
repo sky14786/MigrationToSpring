@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.member;
+package com.themembers.member;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.thecenter.pilatesfit.common.jwt.TokenManager;
+import com.themembers.common.jwt.TokenManager;
 
 @RestController
 @RequestMapping("/api")

@@ -1,9 +1,9 @@
-package com.thecenter.pilatesfit.member;
+package com.themembers.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.thecenter.pilatesfit.common.mapper.MemberMapper;
+import com.themembers.common.mapper.MemberMapper;
 
 @Service
 public class MemberServiceImpl implements MemberService {

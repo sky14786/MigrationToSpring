@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.common;
+package com.themembers.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

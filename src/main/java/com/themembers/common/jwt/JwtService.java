@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.common.jwt;
+package com.themembers.common.jwt;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.common;
+package com.themembers.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.common.mapper;
+package com.themembers.common.mapper;
 
 import java.util.List;
 import java.util.Map;

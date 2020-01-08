@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.common.jwt;
+package com.themembers.common.jwt;
 
 import java.util.Date;
 import java.util.HashMap;

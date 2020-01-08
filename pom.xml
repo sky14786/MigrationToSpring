@@ -8,11 +8,11 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.thecenter</groupId>
-	<artifactId>pilatestfit</artifactId>
+	<groupId>com.themembers</groupId>
+	<artifactId>themembers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>pilatestpit</name>
+	<name>themembers</name>
 	<description>The Center of Pilates</description>
 	<properties>
 		<java.version>1.8</java.version>

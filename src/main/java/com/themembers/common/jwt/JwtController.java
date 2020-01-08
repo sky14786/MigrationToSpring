@@ -1,4 +1,4 @@
-package com.thecenter.pilatesfit.common.jwt;
+package com.themembers.common.jwt;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,12 +12,12 @@ public class JwtController {
 	@Autowired
 	private JwtService jwtService;
 
-	@PostMapping("/jwt/create")
+	@PostMapping("/jwt")
 	public String createToken(HttpServletRequest res) throws Exception {
 		return jwtService.createToken(res);
 	}
 
-	@GetMapping("/jwt/auth")
+	@GetMapping("/jwt")
 	public boolean validateToken(HttpServletRequest res) throws Exception {
 		String jwt = res.getParameter("jwt");
 
