@@ -1,6 +1,7 @@
 package com.themembers.member;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,14 @@ public class MemberServiceImpl implements MemberService {
 	MemberMapper memberMapper;
 
 	@Override
-	public Object findAll() {
+	public List<Member> findAll() {
 		return memberMapper.findAll();
 	}
 
 	@Override
 	public int create(HashMap map) {
-		map.put("UPD_USER",map.get("ID"));
-		map.put("UPD_DATE","DEFAULT");
+		map.put("UPD_USER", map.get("ID"));
+		map.put("UPD_DATE", "DEFAULT");
 		return memberMapper.create(map);
 	}
 

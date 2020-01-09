@@ -4,6 +4,11 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="memberVO" type="com.themembers.member.Member"/>
+	</typeAliases>
+
 	<mappers>
 		<mapper resource="MemberMapper.xml"/>
 	</mappers>

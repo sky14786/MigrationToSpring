@@ -20,7 +20,8 @@ public class Member {
 	private String snsYn;
 	private String memNick;
 
-	public Member(){}
+	public Member() {
+	}
 
 	public int getMemCode() {
 		return memCode;
@@ -149,7 +150,4 @@ public class Member {
 				+ ", regDate=" + regDate + ", useYn=" + useYn + ", updDate=" + updDate + ", updUser=" + updUser
 				+ ", mailYn=" + mailYn + ", snsYn=" + snsYn + ", memNick=" + memNick + "]";
 	}
-
-	
-
 }
