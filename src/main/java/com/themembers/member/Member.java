@@ -1,88 +1,96 @@
 package com.themembers.member;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Member {
-	private int code;
-	private String name;
-	private String id;
-	private String pwd;
-	private String phone;
-	private String gender;
-	private Date birth;
-	private int type;
-	private Date regDate;
+	private int memCode;
+	private String memName;
+	private String memId;
+	private String memPwd;
+	private String memTel;
+	private String memGender;
+	private Date memBirth;
+	private int memType;
+	private LocalDateTime regDate;
 	private String useYn;
+	private LocalDateTime updDate;
 	private String updUser;
-	private Date updDate;
 	private String mailYn;
 	private String snsYn;
-	private String nickName;
+	private String memNick;
 
-	public Member() {
+	public Member(){}
+
+	public int getMemCode() {
+		return memCode;
 	}
 
-	public String getName() {
-		return name;
+	public void setMemCode(int memCode) {
+		this.memCode = memCode;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getMemName() {
+		return memName;
 	}
 
-	public String getId() {
-		return id;
+	public void setMemName(String memName) {
+		this.memName = memName;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public String getMemId() {
+		return memId;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public String getMemPwd() {
+		return memPwd;
 	}
 
-	public String getPhone() {
-		return phone;
+	public void setMemPwd(String memPwd) {
+		this.memPwd = memPwd;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public String getMemTel() {
+		return memTel;
 	}
 
-	public String getGender() {
-		return gender;
+	public void setMemTel(String memTel) {
+		this.memTel = memTel;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public String getMemGender() {
+		return memGender;
 	}
 
-	public Date getBirth() {
-		return birth;
+	public void setMemGender(String memGender) {
+		this.memGender = memGender;
 	}
 
-	public void setBirth(Date birth) {
-		this.birth = birth;
+	public Date getMemBirth() {
+		return memBirth;
 	}
 
-	public int getType() {
-		return type;
+	public void setMemBirth(Date memBirth) {
+		this.memBirth = memBirth;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public int getMemType() {
+		return memType;
 	}
 
-	public Date getRegDate() {
+	public void setMemType(int memType) {
+		this.memType = memType;
+	}
+
+	public LocalDateTime getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Date regDate) {
+	public void setRegDate(LocalDateTime regDate) {
 		this.regDate = regDate;
 	}
 
@@ -94,20 +102,20 @@ public class Member {
 		this.useYn = useYn;
 	}
 
+	public LocalDateTime getUpdDate() {
+		return updDate;
+	}
+
+	public void setUpdDate(LocalDateTime updDate) {
+		this.updDate = updDate;
+	}
+
 	public String getUpdUser() {
 		return updUser;
 	}
 
 	public void setUpdUser(String updUser) {
 		this.updUser = updUser;
-	}
-
-	public Date getUpdDate() {
-		return updDate;
-	}
-
-	public void setUpdDate(Date updDate) {
-		this.updDate = updDate;
 	}
 
 	public String getMailYn() {
@@ -126,48 +134,22 @@ public class Member {
 		this.snsYn = snsYn;
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getMemNick() {
+		return memNick;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	public Member(int code, String name, String id, String pwd, String phone, String gender, Date birth, int type,
-			Date regDate, String useYn, String updUser, Date updDate, String mailYn, String snsYn, String nickName) {
-		super();
-		this.code = code;
-		this.name = name;
-		this.id = id;
-		this.pwd = pwd;
-		this.phone = phone;
-		this.gender = gender;
-		this.birth = birth;
-		this.type = type;
-		this.regDate = regDate;
-		this.useYn = useYn;
-		this.updUser = updUser;
-		this.updDate = updDate;
-		this.mailYn = mailYn;
-		this.snsYn = snsYn;
-		this.nickName = nickName;
+	public void setMemNick(String memNick) {
+		this.memNick = memNick;
 	}
 
 	@Override
 	public String toString() {
-		return "Member [code=" + code + ", name=" + name + ", id=" + id + ", pwd=" + pwd + ", phone=" + phone
-				+ ", gender=" + gender + ", birth=" + birth + ", type=" + type + ", regDate=" + regDate + ", useYn="
-				+ useYn + ", updUser=" + updUser + ", updDate=" + updDate + ", mailYn=" + mailYn + ", snsYn=" + snsYn
-				+ ", nickName=" + nickName + "]";
+		return "Member [memCode=" + memCode + ", memName=" + memName + ", memId=" + memId + ", memPwd=" + memPwd
+				+ ", memTel=" + memTel + ", memGender=" + memGender + ", memBirth=" + memBirth + ", memType=" + memType
+				+ ", regDate=" + regDate + ", useYn=" + useYn + ", updDate=" + updDate + ", updUser=" + updUser
+				+ ", mailYn=" + mailYn + ", snsYn=" + snsYn + ", memNick=" + memNick + "]";
 	}
+
+	
 
 }
