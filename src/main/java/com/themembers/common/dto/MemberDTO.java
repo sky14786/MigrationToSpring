@@ -1,4 +1,4 @@
-package com.themembers.member;
+package com.themembers.common.dto;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import org.apache.ibatis.type.Alias;
 
 @Alias("member")
-public class Member {
+public class MemberDTO {
 	private int memCode;
 	private String memName;
 	private String memId;
@@ -23,7 +23,7 @@ public class Member {
 	private String snsYn;
 	private String memNick;
 
-	public Member() {
+	public MemberDTO() {
 	}
 
 	public int getMemCode() {

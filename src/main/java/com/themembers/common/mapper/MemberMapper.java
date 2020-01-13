@@ -7,12 +7,12 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import com.themembers.member.Member;
+import com.themembers.common.dto.MemberDTO;
+
 
 @Mapper
-@Repository
 public interface MemberMapper {
-	List<Member> findAll();
+	List<MemberDTO> findAll();
 	
 	List<HashMap<String,Object>> findAlltest();
 	

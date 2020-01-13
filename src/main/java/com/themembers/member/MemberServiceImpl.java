@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.themembers.common.dto.MemberDTO;
 import com.themembers.common.mapper.MemberMapper;
 
 @Service
@@ -16,7 +17,7 @@ public class MemberServiceImpl implements MemberService {
 	MemberMapper memberMapper;
 
 	@Override
-	public List<Member> findAll() {
+	public List<MemberDTO> findAll() {
 		return memberMapper.findAll();
 	}
 
