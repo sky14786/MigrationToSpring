@@ -3,6 +3,9 @@ package com.themembers.member;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("member")
 public class Member {
 	private int memCode;
 	private String memName;
