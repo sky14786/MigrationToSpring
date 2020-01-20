@@ -22,14 +22,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<HashMap<String,Object>> findAlltest() {
+	public List<HashMap<String, Object>> findAlltest() {
 		return memberMapper.findAlltest();
 	}
 
 	@Override
-	public int create(HashMap map) { 
-		map.put("UPD_USER", map.get("ID"));
-		map.put("UPD_DATE", "DEFAULT");
+	public int create(HashMap map) {
+		map.put("updUser", map.get("memId"));
+		map.put("updDate", "DEFAULT");
+		System.out.println(map);
 		return memberMapper.create(map);
 	}
 

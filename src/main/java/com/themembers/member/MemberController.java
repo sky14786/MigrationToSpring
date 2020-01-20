@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-import com.themembers.common.JsonController;
 import com.themembers.common.dto.MemberDTO;
 
 @RestController
@@ -21,23 +19,17 @@ import com.themembers.common.dto.MemberDTO;
 public class MemberController {
 
 	private Log log = LogFactory.getLog(MemberController.class);
-	private JsonController jsonController = new JsonController();
 
 	@Autowired
 	MemberService memberService;
 
-	@GetMapping(value = "/member", produces="text/plain;charset=UTF-8")
-	public String findAll() {
-		System.out.println(jsonController.BeanToJson(memberService.findAll()));
-		log.info(memberService.findAll().get(1).getRegDate().toString());
-		return jsonController.BeanToJson(memberService.findAll());
+	@GetMapping(value = "/member")
+	public List<MemberDTO> findAll() {
+		return memberService.findAll();
 	}
 
 	@GetMapping(value = "/member/test")
 	public List<HashMap<String, Object>> findAlltest() {
-		Gson gson = new Gson();
-		log.info((gson.toJson(memberService.findAlltest().toString())));
-		System.out.println(memberService.findAlltest());
 		return memberService.findAlltest();
 	}
 
