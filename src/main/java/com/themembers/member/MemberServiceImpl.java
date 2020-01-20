@@ -33,5 +33,10 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println(map);
 		return memberMapper.create(map);
 	}
+	
+	@Override
+	public int createTest(MemberDTO member) {
+		return memberMapper.createTest(member);
+	}
 
 }

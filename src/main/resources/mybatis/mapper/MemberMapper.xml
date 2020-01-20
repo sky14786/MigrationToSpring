@@ -12,4 +12,8 @@
 	<insert id="create" parameterType="map">
 		INSERT INTO MEMBER VALUES(DEFAULT,#{memName},#{memId},#{memPwd},#{memTel},#{memGender},#{memBirth},DEFAULT,DEFAULT,"Y",DEFAULT,#{updUser},#{mailYn},#{snsYn},#{memNick})
 	</insert>
+	
+	<insert id="createTest" parameterType="com.themembers.common.dto.MemberDTO">
+		INSERT INTO MEMBER VALUES(DEFAULT,#{memName},#{memId},#{memPwd},#{memTel},#{memGender},#{memBirth},DEFAULT,DEFAULT,"Y",DEFAULT,#{updUser},#{mailYn},#{snsYn},#{memNick})
+	</insert>
 </mapper>

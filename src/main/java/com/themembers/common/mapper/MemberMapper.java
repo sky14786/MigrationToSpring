@@ -16,6 +16,7 @@ public interface MemberMapper {
 	
 	List<HashMap<String,Object>> findAlltest();
 	
-
 	int create(HashMap map);
+	
+	int createTest(MemberDTO member);
 }
