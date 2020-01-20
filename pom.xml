@@ -12,8 +12,11 @@
 	<artifactId>themembers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<build>
+		<finalName>ROOT</finalName>
+	</build>
 	<name>themembers</name>
-	<description>The Center of Pilates</description>
+	<description>The Members</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
