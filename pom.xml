@@ -12,9 +12,6 @@
 	<artifactId>themembers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<build>
-		<finalName>ROOT</finalName>
-	</build>
 	<name>themembers</name>
 	<description>The Members</description>
 	<properties>
@@ -85,6 +82,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
