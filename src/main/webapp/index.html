@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/ready/front/css/index.css" media="all" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
   </head>
   <body>
-    <form name="testForm" id="testForm" action="http://localhost:5701/api/member" method="post">
+    <form name="testForm" id="testForm" action="http://localhost:5701/api/member"" method="post">
+      <input type="hidden" name="updUser" value="inputUser">
       <fieldset>
         <legend>기본정보</legend>
         <label for="memName">
@@ -61,93 +63,90 @@
           <input type="text" name="memNick" id="memNick" required/>
         </label>
       </fieldset>
-      <button class="submit" type="button" onclick="test();">전송</button>
+      <input type="submit" class="submit" value="전송" />
     </form>
 
+
+    <!-- <script src="/ready/front/js/jquery.ajax-cross-origin.min.js"></script> -->
     <script>
       $('document').ready(function(){
 
-        $.fn.serializeObject = function() {
-
-          var result = {}
-          var extend = function(i, element) {
-            var node = result[element.name]
-            if ("undefined" !== typeof node && node !== null) {
-              if ($.isArray(node)) {
-                node.push(element.value)
-              } else {
-                result[element.name] = [node, element.value]
-              }
-            } else {
-              result[element.name] = element.value
-            }
-          }
-
-          $.each(this.serializeArray(), extend)
-          return result
-        }
+        // $.fn.serializeObject = function() {
+        //
+        //   var result = {}
+        //   var extend = function(i, element) {
+        //     var node = result[element.name]
+        //     if ("undefined" !== typeof node && node !== null) {
+        //       if ($.isArray(node)) {
+        //         node.push(element.value)
+        //       } else {
+        //         result[element.name] = [node, element.value]
+        //       }
+        //     } else {
+        //       result[element.name] = element.value
+        //     }
+        //   }
+        //
+        //   $.each(this.serializeArray(), extend)
+        //   return result
+        // }
 
         $('input:required, select:required').prev('span').prepend('<i>*</i>');
 
 
-      //   var dataObj = {};
 
-      //   // var formQueryString = $('#testForm').serialize();
-      //   // var formJson = $('#testForm').serializeObject();
-      //   // var formArray = $('#testForm').serializeArray();
+        // var formQueryString = $('#testForm').serialize();
+        // var formJson = $('#testForm').serializeObject();
+        // var formArray = $('#testForm').serializeArray();
+        // console.log(formArray);
+        // console.log(JSON.stringify(formArray));
+
+        var dataArray = [];
+        var dataObj = {};
+
+        // function makeJson(){
+        //   $('#testForm input').each(function(i,item){
+        //     var inputName = $(item).attr('name');
+        //     var inputValue = $(item).val();
+        //     dataObj[inputName] = inputValue;
+        //     dataArray.push(dataObj);
+        //   });
+        // }
+        // makeJson();
+        // var jsonData = JSON.stringify(dataArray);
+        // console.log(jsonData);
 
 
+        $('.submit').click(function(e){
+          e.preventDefault();
+          var formArray = $('#testForm').serializeArray();
+          var headers = {};
+          headers["Access-Control-Allow-Origin"] = "*";
+          headers["Content-Type"] = "application/json";
+          headers["X-Custom-Header"] = "pingpong";
+          console.log(JSON.stringify(formArray))
 
+          $.ajax({
+            // crossOrigin: true,
+            type:"POST",
+            url:"http://localhost:5701/api/member",
+            data:JSON.stringify(formArray),
+            dataType:"json",
+            //contentType : "application/json",
+            headers:headers,          
+            success:function(json){
+                  alert(json);
+              console.log(JSON.stringify(formArray));
+               },
+               error:function(){
+                  alert('error');
+              console.log(JSON.stringify(formArray));
+               },
 
-      //   console.log(dataObj);
-
-      //   $('#testForm input').each(function(i,item){
-      //     var inputName = $(item).attr('name');
-      //     var inputValue = $(item).val();
-      //     dataObj[inputName] = inputValue;
-      //     console.log(dataObj);
-      //   });
-
-      //   $('.submit').click(function(e){
-      //     console.log("1 : "+ataObj);
-      //     e.preventDefault();
-      //     jQuery.ajax({
-      //       type:"post",
-      //       url:"http://13.124.38.142:8080/api/member",
-      //       data:dataObj,
-      //       dataTpe:"json",
-      // 			error:function(xhr, status, error){
-      // 				alert("1 : "+xhr+" 2 : "+status+" 3 : "+error);
-      //         console.log(dataObj);
-      // 			},
-      //       success:function(json){
-      // 				alert(json);
-      //         console.log(dataObj);
-      // 			},
-      //     });
-      //   });
-
-      });
-
-      function test(){
-        var sendData = {};
-        $.each($('#testForm input'),function(index,item){
-          // console.log($(item).attr('name')+":"+$(item).val());
-          sendData[$(item).attr('name')] = $(item).val();
-        })
-        console.log(sendData);
-        console.log(JSON.stringify(sendData));
-        $.ajax({
-          type:"POST",
-          url:"http://localhost:5701/api/member",
-          data:JSON.stringify(sendData),
-          contentType:"application/json",
-          success:function(msg){
-            console.log(msg);
-          }
+          });
         });
 
-      }
+      });
     </script>
   </body>
 </html>

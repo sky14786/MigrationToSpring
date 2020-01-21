@@ -2,6 +2,7 @@ package com.themembers.member;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -20,8 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.themembers.common.dto.MemberDTO;
 
-
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class MemberController {
@@ -40,23 +39,26 @@ public class MemberController {
 	public List<HashMap<String, Object>> findAlltest() {
 		return memberService.findAlltest();
 	}
+
 	@PostMapping(value = "/member")
-	@ResponseBody
-	public int create(@RequestParam(required = false) String map) {
-		System.out.println(map);
-		log.info("|INPUT|" + map);
+	public int create(@RequestBody HashMap<String, Object> map) {
+		memberService.create(map);
 		return 1;
 	}
+
 	@PostMapping(value = "/member/test")
 	public int createTest(@RequestBody MemberDTO member) {
 		memberService.createTest(member);
 		return 1;
-	}	
+	}
+
 	@PutMapping(value = "/member/testUp")
+
 	public int updateTest(@RequestBody MemberDTO member) {
 		memberService.updateTest(member);
 		return 1;
 	}
+
 	@DeleteMapping(value = "/member/testDe")
 	public int delelteTest(@RequestBody MemberDTO member) {
 		memberService.deleteTest(member);
