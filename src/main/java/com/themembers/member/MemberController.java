@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.themembers.common.dto.MemberDTO;
@@ -43,9 +46,19 @@ public class MemberController {
 
 	@PostMapping(value = "/member/test")
 	public int createTest(@RequestBody MemberDTO member) {
-		System.out.println(member);
 		memberService.createTest(member);
 		return 1;
 	}
 
+	@PostMapping(value = "/member/testUp")
+	public int updateTest(@RequestBody MemberDTO member) {
+		memberService.updateTest(member);
+		return 1;
+	}
+
+	@PostMapping(value = "/member/testDe")
+	public int delelteTest(@RequestBody MemberDTO member) {
+		memberService.deleteTest(member);
+		return 1;
+	}
 }

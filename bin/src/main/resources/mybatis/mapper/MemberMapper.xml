@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "Mapper" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.themembers.common.mapper.MemberMapper">
-	<select id="findAll" resultType="com.themembers.member.Member">
+	<select id="findAll" resultType="member">
 		SELECT * FROM MEMBER
 	</select>
 	
@@ -10,6 +10,6 @@
 	</select>
 	
 	<insert id="create" parameterType="map">
-		INSERT INTO MEMBER VALUES(DEFAULT,#{NAME},#{ID},#{PWD},#{PHONE},#{GENDER},#{BIRTH},DEFAULT,DEFAULT,"Y",DEFAULT,#{UPD_USER},#{MAIL_YN},#{SNS_YN},#{NICKNAME})
+		INSERT INTO MEMBER VALUES(DEFAULT,#{memName},#{memId},#{memPwd},#{memTel},#{memGender},#{memBirth},DEFAULT,DEFAULT,"Y",DEFAULT,#{updUser},#{mailYn},#{snsYn},#{memNick})
 	</insert>
 </mapper>

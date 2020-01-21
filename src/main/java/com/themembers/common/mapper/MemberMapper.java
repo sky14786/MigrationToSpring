@@ -19,4 +19,6 @@ public interface MemberMapper {
 	int create(HashMap map);
 	
 	int createTest(MemberDTO member);
+	int updateTest(MemberDTO member);
+	int deleteTest(MemberDTO member);
 }
