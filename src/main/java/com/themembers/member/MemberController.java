@@ -7,8 +7,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -50,12 +52,12 @@ public class MemberController {
 		memberService.createTest(member);
 		return 1;
 	}	
-	@PostMapping(value = "/member/testUp")
+	@PutMapping(value = "/member/testUp")
 	public int updateTest(@RequestBody MemberDTO member) {
 		memberService.updateTest(member);
 		return 1;
 	}
-	@PostMapping(value = "/member/testDe")
+	@DeleteMapping(value = "/member/testDe")
 	public int delelteTest(@RequestBody MemberDTO member) {
 		memberService.deleteTest(member);
 		return 1;
