@@ -17,11 +17,6 @@ public class MemberServiceImpl implements MemberService {
 	MemberMapper memberMapper;
 
 	@Override
-	public List<MemberDTO> findAll() {
-		return memberMapper.findAll();
-	}
-
-	@Override
 	public List<HashMap<String, Object>> findAlltest() {
 		return memberMapper.findAlltest();
 	}
@@ -35,8 +30,25 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public List<MemberDTO> findAll() {
+		return memberMapper.findAll();
+	}
+	
+	@Override
 	public int createTest(MemberDTO member) {
 		return memberMapper.createTest(member);
 	}
+	
+	@Override
+	public int updateTest(MemberDTO member) {
+		return memberMapper.updateTest(member);
+	}
+	
+	@Override
+	public int deleteTest(MemberDTO member) {
+		return memberMapper.deleteTest(member);
+	}
+	
+	
 
 }

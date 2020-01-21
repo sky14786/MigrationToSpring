@@ -11,5 +11,8 @@ public interface MemberService {
 	public List<HashMap<String,Object>> findAlltest();
 
 	public int create(HashMap map);
+	
 	public int createTest(MemberDTO member);
+	public int updateTest(MemberDTO member);
+	public int deleteTest(MemberDTO member);
 }
