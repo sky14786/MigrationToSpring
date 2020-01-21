@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>form test</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" media="all" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <form name="testForm" id="testForm" action="http://localhost:5701/api/member" method="post">
+      <fieldset>
+        <legend>기본정보</legend>
+        <label for="memName">
+          <span>이름</span>
+          <input type="text" name="memName" id="memName" required />
+        </label>
+        <label for="memId">
+          <span>아이디</span>
+          <input type="email" name="memId" id="memId" placeholder="mymail@mymail.com" required />
+          <label for="mailYn">
+            <span>email수신동의</span>
+            <input type="checkbox" name="mailYn" id="mailYn" value="N"/>
+          </label>
+        </label>
+        <label for="memPwd">
+          <span>비밀번호</span>
+          <input type="password" name="memPwd" id="memPwd" required />
+        </label>
+        <label for="memPwdChk">
+          <span>비밀번호 확인</span>
+          <input type="password" name="memPwdChk" id="memPwdChk" required />
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>추가정보</legend>
+        <label for="memTel">
+          <span>연락처</span>
+          <input type="text" name="memTel" id="memTel" />
+          <label for="snsYn">
+            <span>SMS 수신동의</span>
+            <input type="checkbox" name="snsYn" id="snsYn" value="N"/>
+          </label>
+        </label>
+        <label for="memGender">
+          <span>성별</span>
+          <select name="memGender" required>
+            <option>성별</option>
+            <option value="MALE">남</option>
+            <option value="FEMALE">여</option>
+          </select>
+        </label>
+        <label for="memBirth">
+          <span>생년월일</span>
+          <input type="text" name="memBirth" id="memBirth" placeholder="ex)19930710"/>
+        </label>
+        <label for="memNick">
+          <span>닉네임</span>
+          <input type="text" name="memNick" id="memNick" required/>
+        </label>
+      </fieldset>
+      <button class="submit" type="button" onclick="test();">전송</button>
+    </form>
+
+    <script>
+      $('document').ready(function(){
+
+        $.fn.serializeObject = function() {
+
+          var result = {}
+          var extend = function(i, element) {
+            var node = result[element.name]
+            if ("undefined" !== typeof node && node !== null) {
+              if ($.isArray(node)) {
+                node.push(element.value)
+              } else {
+                result[element.name] = [node, element.value]
+              }
+            } else {
+              result[element.name] = element.value
+            }
+          }
+
+          $.each(this.serializeArray(), extend)
+          return result
+        }
+
+        $('input:required, select:required').prev('span').prepend('<i>*</i>');
+
+
+      //   var dataObj = {};
+
+      //   // var formQueryString = $('#testForm').serialize();
+      //   // var formJson = $('#testForm').serializeObject();
+      //   // var formArray = $('#testForm').serializeArray();
+
+
+
+
+      //   console.log(dataObj);
+
+      //   $('#testForm input').each(function(i,item){
+      //     var inputName = $(item).attr('name');
+      //     var inputValue = $(item).val();
+      //     dataObj[inputName] = inputValue;
+      //     console.log(dataObj);
+      //   });
+
+      //   $('.submit').click(function(e){
+      //     console.log("1 : "+ataObj);
+      //     e.preventDefault();
+      //     jQuery.ajax({
+      //       type:"post",
+      //       url:"http://13.124.38.142:8080/api/member",
+      //       data:dataObj,
+      //       dataTpe:"json",
+      // 			error:function(xhr, status, error){
+      // 				alert("1 : "+xhr+" 2 : "+status+" 3 : "+error);
+      //         console.log(dataObj);
+      // 			},
+      //       success:function(json){
+      // 				alert(json);
+      //         console.log(dataObj);
+      // 			},
+      //     });
+      //   });
+
+      });
+
+      function test(){
+        var sendData = {};
+        $.each($('#testForm input'),function(index,item){
+          // console.log($(item).attr('name')+":"+$(item).val());
+          sendData[$(item).attr('name')] = $(item).val();
+        })
+        console.log(sendData);
+        console.log(JSON.stringify(sendData));
+        $.ajax({
+          type:"POST",
+          url:"http://localhost:5701/api/member",
+          data:JSON.stringify(sendData),
+          contentType:"application/json",
+          success:function(msg){
+            console.log(msg);
+          }
+        });
+
+      }
+    </script>
+  </body>
+</html>
