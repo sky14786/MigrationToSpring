@@ -6,14 +6,20 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.themembers.common.dto.MemberDTO;
 
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class MemberController {
@@ -33,9 +39,10 @@ public class MemberController {
 		return memberService.findAlltest();
 	}
 	@PostMapping(value = "/member")
-	public int create(@RequestBody HashMap map) {
+	@ResponseBody
+	public int create(@RequestParam(required = false) String map) {
+		System.out.println(map);
 		log.info("|INPUT|" + map);
-		memberService.create(map);
 		return 1;
 	}
 	@PostMapping(value = "/member/test")
