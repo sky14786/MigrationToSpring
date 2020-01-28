@@ -20,7 +20,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtServiceImpl implements JwtService {
 	private Log log = LogFactory.getLog(JwtServiceImpl.class);
 
-	private final String saltKey = "centerpilatesfit";
+	private final String saltKey = "themembers";
 
 	@Override
 	public String createToken(HttpServletRequest res) {
@@ -35,10 +35,10 @@ public class JwtServiceImpl implements JwtService {
 
 		String user = res.getParameter("user");
 		String name = res.getParameter("name");
-
+		// Test Codes
 		user = "testuser";
 		name = "test";
-
+		// -------
 		payloads.put("user", user);
 		payloads.put("name", name);
 
@@ -58,10 +58,10 @@ public class JwtServiceImpl implements JwtService {
 			log.info("name : " + claims.get("name"));
 			return true;
 		} catch (ExpiredJwtException exception) {
-			log.info("토큰 만료");
+			log.info("Token Expiration");
 			return false;
 		} catch (JwtException exception) {
-			log.info("토큰 변조");
+			log.info("Token Modulation");
 			return false;
 		}
 
