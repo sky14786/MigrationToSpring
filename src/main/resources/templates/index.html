@@ -11,7 +11,8 @@
 
   </head>
   <body>
-    <form name="testForm" id="testForm" action="http://15.165.158.164:8080/api/member/test" method="post">
+	<form name="testForm" id="testForm" action="http://52.79.234.164:8080/api/member/test" method="post">
+    <!-- <form name="testForm" id="testForm" action="http://15.165.158.164:8080/api/member/test" method="post"> -->
       <input type="hidden" name="updUser" value="inputUser">
       <fieldset>
         <legend>기본정보</legend>
@@ -159,7 +160,7 @@
           $.ajax({
             // crossOrigin: true,
             type:"POST",
-            url:"http://15.165.158.164:8080/api/member/test",
+            url:"http://52.79.234.164:8080/api/member/test",
             data:JSON.stringify(object),
             dataType:"json",
             //contentType : "application/json",
@@ -185,7 +186,7 @@
           $.ajax({
             // crossOrigin: true,
             type:"GET",
-            url:"http://15.165.158.164:8080/api/member/test",
+            url:"http://52.79.234.164:8080/api/member/test",
             dataType:"json",
             headers:headers,
             success:function(json){
