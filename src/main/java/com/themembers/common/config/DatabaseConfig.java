@@ -1,4 +1,4 @@
-package com.thememebers.common.config;
+package com.themembers.common.config;
 
 import javax.sql.DataSource;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-@MapperScan(basePackages = "com.thememebers.common.mapper")
+@MapperScan(basePackages = "com.themembers.common.mapper")
 @Configuration
 public class DatabaseConfig {
 
