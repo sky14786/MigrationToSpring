@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <link rel="stylesheet" type="text/css" href="/ready/front/css/index.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" media="all" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   </head>
   <body>
-    <form name="testForm" id="testForm" action="http://localhost:5701/api/member"" method="post">
+    <form name="testForm" id="testForm" action="http://15.165.158.164:8080/api/member/test" method="post">
       <input type="hidden" name="updUser" value="inputUser">
       <fieldset>
         <legend>기본정보</legend>
@@ -63,11 +63,27 @@
           <input type="text" name="memNick" id="memNick" required/>
         </label>
       </fieldset>
-      <input type="submit" class="submit" value="전송" />
+      <a href="#" class="submit">전송</a>
+      <a href="#" class="get">조회</a>
     </form>
+    <div id="viewData">
+      <table>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>아이디</th>
+            <th>연락처</th>
+            <th>성별</th>
+            <th>생년월일</th>
+            <th>가입일</th>
+            <th>닉네임</th>
+          </tr>
+        </thead>
 
+      </table>
+    </div>
 
-    <!-- <script src="/ready/front/js/jquery.ajax-cross-origin.min.js"></script> -->
+    <!-- <script src="js/jquery.ajax-cross-origin.min.js"></script> -->
     <script>
       $('document').ready(function(){
 
@@ -120,31 +136,68 @@
         $('.submit').click(function(e){
           e.preventDefault();
           var formArray = $('#testForm').serializeArray();
+          console.log(formArray);
+          var object = {};
+          for (var i = 0; i < formArray.length; i++){
+              object[formArray[i]['name']] = formArray[i]['value'];
+          }
+          console.log(object);
+          var checkLength = $('#testForm input[type=checkbox]').length;
+          for(var i=0; i<checkLength; i++){
+            var checkName = $('#testForm input[type=checkbox]').eq(i).attr('name');
+            var checkValue = $('#testForm input[type=checkbox]').eq(i).val();
+            object[checkName] = checkValue;
+          }
+          console.log(object);
+          console.log(JSON.stringify(object));
+
           var headers = {};
           headers["Access-Control-Allow-Origin"] = "*";
           headers["Content-Type"] = "application/json";
           headers["X-Custom-Header"] = "pingpong";
-          console.log(JSON.stringify(formArray))
 
           $.ajax({
             // crossOrigin: true,
             type:"POST",
-            url:"http://localhost:5701/api/member",
-            data:JSON.stringify(formArray),
+            url:"http://15.165.158.164:8080/api/member/test",
+            data:JSON.stringify(object),
             dataType:"json",
             //contentType : "application/json",
-            headers:headers,          
+            headers:headers,
             success:function(json){
-                  alert(json);
+      				alert(json);
               console.log(JSON.stringify(formArray));
-               },
-               error:function(){
-                  alert('error');
+      			},
+      			error:function(){
+      				alert('error');
               console.log(JSON.stringify(formArray));
-               },
-
+      			},
           });
         });
+
+
+        $('.get').click(function(e){
+          e.preventDefault();
+          var headers = {};
+          headers["Access-Control-Allow-Origin"] = "*";
+          headers["Content-Type"] = "application/json";
+          headers["X-Custom-Header"] = "pingpong";
+          $.ajax({
+            // crossOrigin: true,
+            type:"GET",
+            url:"http://15.165.158.164:8080/api/member/test",
+            dataType:"json",
+            headers:headers,
+            success:function(json){
+
+              console.log(json)
+            },
+            error:function(){
+              alert('error');
+            },
+          });
+        });
+
 
       });
     </script>
